@@ -10,12 +10,22 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@openspacelabs/react-native-zoomable-view": "^2.0.0",
     "expo": "~44.0.0",
     "expo-status-bar": "~1.2.0",
+    "fabric": "^5.2.1",
+    "fabric-with-gestures": "^4.5.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-draggable": "^4.4.4",
     "react-native": "0.64.3",
-    "react-native-web": "0.17.1"
+    "react-native-canvas": "^0.1.38",
+    "react-native-dotenv": "^3.3.1",
+    "react-native-game-engine": "^1.2.0",
+    "react-native-svg": "^12.3.0",
+    "react-native-svg-pan-zoom": "^0.1.2",
+    "react-native-web": "0.17.1",
+    "react-native-webview": "^11.18.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
