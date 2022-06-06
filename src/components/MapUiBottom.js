@@ -20,12 +20,13 @@ function MapUiBottom(props) {
 const styles = StyleSheet.create({
   uiBottom: {
     height: "10%",
-    backgroundColor: "blue",
+    backgroundColor: "rgba(10, 10, 80, 0.4)",
     width: "100%",
     position: "absolute",
     bottom: 0,
     justifyContent: "center",
     alignItems: "center",
+    zIndex: -1,
   },
   countryTag: {
     color: "white",

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { StyleSheet, TouchableHighlight, View } from "react-native";
 import Svg, { Polygon } from "react-native-svg";
 import SvgPanZoom, { SvgPanZoomElement } from "react-native-svg-pan-zoom";
-import ReactNativeZoomableView from "@openspacelabs/react-native-zoomable-view/src/ReactNativeZoomableView";
+// import ReactNativeZoomableView from "@openspacelabs/react-native-zoomable-view/src/ReactNativeZoomableView";
 import Draggable from "react-draggable";
 
 const MAX_ZOOM = 10;
@@ -15,7 +15,7 @@ const COUNTRY_COLORS = {
   2: "#e8c433",
   3: "#ed4637",
 };
-const OUTLINE_WIDTH = 0;
+const OUTLINE_WIDTH = 0.02;
 const ERROR_COLOR = "#ed4637";
 const DEFAULT_COLOR = "rgb(113, 116, 129)";
 
@@ -29,7 +29,6 @@ class MapCanvas extends Component {
   renderMaps = () => {
     let polygons = [];
     if (!this.state.mapData) {
-      console.log("returning");
       return;
     }
     this.state.mapData.features.forEach((feature, idx) => {
@@ -83,7 +82,7 @@ class MapCanvas extends Component {
   };
 
   getMapData = async (map) => {
-    const mapData = require(`../../assets/maps/world-large.json`);
+    const mapData = require(`../../assets/maps/world.json`);
     this.setState({ mapData: mapData });
   };
 
@@ -93,29 +92,38 @@ class MapCanvas extends Component {
 
   render() {
     return (
-      <ReactNativeZoomableView
-        maxZoom={3}
-        minZoom={0.5}
-        zoomStep={0.5}
-        initialZoom={1}
-        bindToBorders={false}
-        onZoomAfter={this.logOutZoomState}
+      // <ReactNativeZoomableView
+      //   maxZoom={3}
+      //   minZoom={0.5}
+      //   zoomStep={0.5}
+      //   initialZoom={1}
+      //   bindToBorders={false}
+      //   onZoomAfter={this.logOutZoomState}
+      // >
+      <SvgPanZoom
+        minScale={0.2}
+        maxScale={10}
+        initialZoom={0.5}
+        width={1000}
+        canvasWidth={2000}
+        canvasHeight={2000}
       >
         <Svg
+          // preserveAspectRatio="xMinYMin slice"
           height="100%"
-          preserveAspectRatio="xMinYMin slice"
-          width="200%"
+          width="100%"
           viewBox="0 0 100 100"
-          canvasHeight={500}
-          canvasWidth={500}
-          minScale={0.5}
-          initialZoom={1.5}
-          translateY={0.5}
-          maxScale={100}
+          // canvasHeight={100}
+          // canvasWidth={100}
+          // minScale={0.1}
+          // initialZoom={0.5}
+          // translateY={0.5}
+          // maxScale={1}
         >
           {this.renderMaps()}
         </Svg>
-      </ReactNativeZoomableView>
+      </SvgPanZoom>
+      // </ReactNativeZoomableView>
       // </Draggable>
     );
   }

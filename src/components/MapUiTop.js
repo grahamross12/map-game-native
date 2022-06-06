@@ -43,9 +43,12 @@ const styles = StyleSheet.create({
   },
   uiTop: {
     height: "10%",
-    backgroundColor: "orange",
+    backgroundColor: "rgba(10, 10, 80, 0.4)",
     width: "100%",
     position: "absolute",
+    zIndex: 10,
+    shadowColor: "transparent",
+    elevation: Platform.OS === "android" ? 1 : 0,
   },
 });
 
